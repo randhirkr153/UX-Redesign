@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kishosic | Secure Checkout</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="checkout-bg" style="background-color: var(--bg-primary);">
+  
+  <header style="border-bottom: 1px solid var(--bg-tertiary); padding: var(--space-4) 0;">
+    <div class="container flex justify-between items-center">
+      <a href="index.html" class="nav-logo">
+        <i data-lucide="hexagon" style="color: var(--accent-cta);"></i> Kishosic<span>.</span>
+      </a>
+      <div class="flex items-center gap-2 text-muted text-sm">
+        <i data-lucide="lock" size="16"></i> Secure Checkout
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="checkout-layout">
+      
+      <!-- Main Checkout Area -->
+      <div class="checkout-steps">
+        
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+          
+          <div class="step active" id="step-nav-1">
+             <div class="step-circle">1</div>
+             <div class="step-label mt-2">Shipping</div>
+          </div>
+          
+          <div class="step" id="step-nav-2">
+             <div class="step-circle">2</div>
+             <div class="step-label mt-2">Payment</div>
+          </div>
+          
+          <div class="step" id="step-nav-3">
+             <div class="step-circle">3</div>
+             <div class="step-label mt-2">Review</div>
+          </div>
+        </div>
+
+        <form id="checkout-form">
+          <!-- Step 1: Shipping (Guest Checkout Style) -->
+          <div class="form-section active" id="step-1">
+            <div class="flex justify-between items-center mb-6">
+              <h2>Shipping Details</h2>
+              <!-- Auto-fill simulation button -->
+              <button id="simulate-autofill" class="btn btn-secondary text-sm flex items-center gap-2" type="button" style="padding: 0.5rem 1rem;">
+                <i data-lucide="zap" size="16"></i> Auto-fill profile (Simulate)
+              </button>
+            </div>
+            
+            <p class="text-sm text-muted mb-6">Checking out as a guest. <a href="#" style="color: var(--accent-cta);">Log in for faster checkout</a>.</p>
+            
+            <div class="form-group">
+              <label for="email">Email Address <span style="color:var(--error)">*</span></label>
+              <input type="email" id="email" required placeholder="name@example.com">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name <span style="color:var(--error)">*</span></label>
+                <input type="text" id="fname" required placeholder="Jane">
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name <span style="color:var(--error)">*</span></label>
+                <input type="text" id="lname" required placeholder="Doe">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Street Address <span style="color:var(--error)">*</span></label>
+              <input type="text" id="address" required placeholder="123 UX Way">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City <span style="color:var(--error)">*</span></label>
+                <input type="text" id="city" required placeholder="San Francisco">
+              </div>
+              <div class="form-group" style="flex: 0.5;">
+                <label for="state">State</label>
+                <select id="state">
+                  <option>CA</option>
+                  <option>NY</option>
+                  <option>TX</option>
+                </select>
+              </div>
+              <div class="form-group" style="flex: 0.5;">
+                <label for="zip">Zip Code <span style="color:var(--error)">*</span></label>
+                <input type="text" id="zip" required placeholder="90210">
+              </div>
+            </div>
+            
+            <div class="flex justify-end mt-8">
+              <button class="btn btn-primary btn-next flex items-center gap-2">
+                Continue to Payment <i data-lucide="arrow-right" size="18"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Payment -->
+          <div class="form-section" id="step-2">
+            <h2 class="mb-6">Payment Method</h2>
+            
+            <!-- Payment Method selector (visual only) -->
+            <div class="flex flex-col gap-4 mb-6">
+              <label class="flex items-center gap-4 p-4" style="border: 1px solid var(--accent-cta); border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.05); cursor:pointer;">
+                <input type="radio" name="payment" checked style="width: auto;">
+                <i data-lucide="credit-card"></i>
+                <span class="font-semibold">Credit/Debit Card</span>
+              </label>
+              
+              <label class="flex items-center gap-4 p-4" style="border: 1px solid var(--bg-tertiary); border-radius: var(--radius-md); cursor:pointer;">
+                <input type="radio" name="payment" style="width: auto;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.29 9.88L11.72 14.47C11.33 14.86 10.7 14.86 10.31 14.47L7.71 11.87C7.32 11.48 7.32 10.85 7.71 10.46C8.1 10.07 8.73 10.07 9.12 10.46L11.01 12.35L14.88 8.47C15.27 8.08 15.9 8.08 16.29 8.47C16.68 8.86 16.68 9.49 16.29 9.88Z" fill="currentColor"/></svg>
+                <span class="font-semibold">PayPal</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="card-name">Name on Card <span style="color:var(--error)">*</span></label>
+              <input type="text" id="card-name" required placeholder="Jane Doe">
+            </div>
+
+            <div class="form-group">
+              <label for="card-number">Card Number <span style="color:var(--error)">*</span></label>
+              <div class="relative">
+                <!-- Auto-formatting script will handle spaces -->
+                <input type="text" id="card-number" required placeholder="0000 0000 0000 0000" maxlength="19">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiry">Expiry (MM/YY) <span style="color:var(--error)">*</span></label>
+                <input type="text" id="expiry" required placeholder="MM/YY" maxlength="5">
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV <span style="color:var(--error)">*</span></label>
+                <input type="text" id="cvv" required placeholder="123" maxlength="4">
+              </div>
+            </div>
+
+            <div class="flex justify-between mt-8">
+              <button class="btn btn-secondary btn-prev flex items-center gap-2">
+                <i data-lucide="arrow-left" size="18"></i> Back
+              </button>
+              <button class="btn btn-primary btn-next flex items-center gap-2">
+                Review Order <i data-lucide="arrow-right" size="18"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Review -->
+          <div class="form-section" id="step-3">
+            <h2 class="mb-6">Review Your Order</h2>
+            
+            <div style="background: var(--bg-tertiary); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
+               <h4 class="mb-2 text-sm text-muted uppercase tracking-wide">Shipping To</h4>
+               <p class="font-semibold">Jane Doe</p>
+               <p class="text-sm">123 UX Way, San Francisco, CA 90210</p>
+               <p class="text-sm">user@example.com</p>
+               <!-- Allow fast edit by clicking completely transparent link over div to navigate back to step 1 -->
+            </div>
+
+            <div style="background: var(--bg-tertiary); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
+               <h4 class="mb-2 text-sm text-muted uppercase tracking-wide">Payment Method</h4>
+               <p class="flex items-center gap-2"><i data-lucide="credit-card" size="16"></i> Visa ending in 4242</p>
+            </div>
+
+            <div class="flex justify-between mt-8">
+              <button class="btn btn-secondary btn-prev flex items-center gap-2">
+                <i data-lucide="arrow-left" size="18"></i> Back
+              </button>
+              <button class="btn btn-primary btn-next flex justify-center items-center gap-2" style="padding-left: var(--space-8); padding-right: var(--space-8);">
+                <i data-lucide="lock" size="18"></i> <span>Place Order</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <!-- Order Summary Sidebar -->
+      <aside class="order-summary">
+        <h3 class="mb-4">Order Summary</h3>
+        
+        <div class="summary-item">
+          <!-- Placeholder Product icon container -->
+          <div class="summary-img flex justify-center items-center">
+             <img src="assets/images/headphones.png" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" alt="Product">
+          </div>
+          <div class="summary-details">
+            <h4>Kishosic Pro Wireless</h4>
+            <p>Qty: 1 | Color: Obsidian</p>
+          </div>
+          <div class="font-semibold">$299.00</div>
+        </div>
+
+        <div class="summary-totals">
+          <div class="total-row">
+            <span>Subtotal</span>
+            <span>$299.00</span>
+          </div>
+          <div class="total-row">
+            <span>Shipping</span>
+            <span style="color: var(--success);">Free</span>
+          </div>
+          <div class="total-row">
+            <span>Tax (Estimated)</span>
+            <span>$23.92</span>
+          </div>
+          <div class="total-row grand-total">
+            <span>Total</span>
+            <span>$322.92</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

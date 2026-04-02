@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kishosic | Premium Audio & Tech</title>
+  <meta name="description" content="Discover premium audio equipment and tech accessories with an optimized shopping experience.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  
+  <header>
+    <div class="container py-4 flex justify-between items-center">
+      <a href="index.html" class="nav-logo">
+        <i data-lucide="hexagon" style="color: var(--accent-cta);"></i> Kishosic<span>.</span>
+      </a>
+      
+      <div class="search-bar">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search for headphones, speakers...">
+      </div>
+
+      <nav class="flex items-center gap-4">
+        <a href="#" class="btn-icon" aria-label="User Account">
+          <i data-lucide="user"></i>
+        </a>
+        <a href="checkout.html" class="btn-icon" aria-label="Shopping Cart">
+          <i data-lucide="shopping-cart"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Section / Breadcrumbs concept but for home -->
+    <section class="py-8 mb-4 border-b">
+      <h1 class="mb-4">Elevate your listening.</h1>
+      <p class="text-muted text-lg max-w-2xl">
+        Experience high-fidelity sound designed for the modern audiophile. Our simplified store helps you find what you need without the clutter.
+      </p>
+    </section>
+
+    <!-- Product Grid -->
+    <section>
+      <div class="flex justify-between items-center mb-8">
+        <h2>Trending Now</h2>
+        <a href="#" class="text-sm font-semibold flex items-center gap-2" style="color: var(--accent-cta);">
+          View All <i data-lucide="arrow-right" size="16"></i>
+        </a>
+      </div>
+
+      <div class="product-grid">
+        <!-- Product 1 (Clickable to Details) -->
+        <a href="product.html" class="product-card">
+          <div class="product-img-wrapper">
+             <img src="assets/images/headphones.png" alt="Headphones" class="img-placeholder">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Kishosic Pro Wireless</h3>
+            <p class="text-sm text-muted mb-4">Active Noise Cancelling</p>
+            <p class="product-price">$299.00</p>
+            <button class="btn btn-primary" style="width: 100%; border-radius: var(--radius-full);">View Details</button>
+          </div>
+        </a>
+
+        <!-- Product 2 -->
+        <a href="product.html" class="product-card">
+          <div class="product-img-wrapper">
+             <img src="assets/images/speaker.png" alt="Speaker" class="img-placeholder">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Aura Studio Speaker</h3>
+            <p class="text-sm text-muted mb-4">360° Room-Filling Sound</p>
+            <p class="product-price">$199.00</p>
+            <button class="btn btn-secondary" style="width: 100%; border-radius: var(--radius-full);">View Details</button>
+          </div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="product.html" class="product-card">
+          <div class="product-img-wrapper">
+             <img src="assets/images/mic.png" alt="Microphone" class="img-placeholder">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Creator Pro Mic</h3>
+            <p class="text-sm text-muted mb-4">Studio-grade condenser</p>
+            <p class="product-price">$149.00</p>
+            <button class="btn btn-secondary" style="width: 100%; border-radius: var(--radius-full);">View Details</button>
+          </div>
+        </a>
+
+        <!-- Product 4 -->
+        <a href="product.html" class="product-card">
+          <div class="product-img-wrapper">
+             <img src="assets/images/watch.png" alt="Smartwatch" class="img-placeholder">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Kishosic Chrono</h3>
+            <p class="text-sm text-muted mb-4">Smart Audio Controller</p>
+            <p class="product-price">$99.00</p>
+            <button class="btn btn-secondary" style="width: 100%; border-radius: var(--radius-full);">View Details</button>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
